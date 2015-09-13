@@ -1,0 +1,146 @@
+IF Acetone & Exposure_<_30_Minutes
+THEN Gastric_Lavage
+
+IF Acetone
+THEN Measure/Monitor_Vital_Signs & Administer_Activated_Charcoal & Administer_Oxygen
+
+IF Ammonia & Swallowed
+THEN Measure/Monitor_Vital_Signs & Provide_Breathing_Support & Administer_IV
+
+IF Ammonia
+THEN Flush_Eyes/Skin
+
+IF Ammonium_Hydroxide
+THEN Admit_To_Hospital & Measure/Monitor_Vital_Signs  & Administer_IV
+
+IF Ammonium_Hydroxide & Inhaled
+THEN Provide_Breathing_Support & Bronchoscopy & Administer_Oxygen
+
+IF Ammonium_Hydroxide & Skin
+THEN Skin_Debridement & Wash_Skin
+
+IF Ammonium_Hydroxide & Swallowed
+THEN Endoscopy
+
+IF Arsenic
+THEN Chelation_Therapy & HyperTension_Medication & Measure/Monitor_Vital_Signs & Oxygen & Sauna
+
+IF Chlorine
+THEN Measure/Monitor_Vital_Signs & Administer_IV & Admit_To_Hospital
+
+IF Chlorine & Swallowed & Exposure_<_30_Minutes
+THEN Gastric_Lavage
+
+IF Chlorine & Swallowed
+THEN Administer_Activated_Charcoal & Endoscopy
+
+IF Chlorine & Inhaled
+THEN Provide_Breathing_Support & Bronchoscopy & Oxygen
+
+IF Chlorine & Skin
+THEN Skin_Debridement & Wash_Skin
+
+IF Copper & Exposure_<_30_Minutes
+THEN Gastric_Lavage
+
+IF Copper & !Exposure_<_30_Minutes
+THEN Measure/Monitor_Vital_Signs & Chelation_Therapy & Administer_Activated_Charcoal & HyperTension_Medication & Sauna
+
+IF Cyanide & Exposure_<_30_Minutes
+THEN Gastric_Lavage 
+
+IF Cyanide & !Exposure_<_30_Minutes
+THEN Measure/Monitor_Vital_Signs & Administer_Antidote
+
+IF Lead & HighLevel & Exposure_<_30_Minutes
+THEN Gastric_Lavage & Bowel_Irrigation
+
+IF Lead & HighLevel
+THEN Measure/Monitor_Vital_Signs & Blood_Lead_Test & Chelation_Therapy & Sauna & HyperTension_Medication & Complete_Blood_Workup
+
+IF Lead & !HighLevel
+THEN Measure/Monitor_Vital_Signs & Blood_Lead_Test
+
+IF Para_Aminobenzoic & Exposure_<_30_Minutes
+THEN Gastric_Lavage 
+
+IF Para_Aminobenzoic & !Exposure_<_30_Minutes 
+THEN Measure/Monitor_Vital_Signs & Administer_Activated_Charcoal & Provide_Breathing_Support & Administer_IV
+
+IF Pufferfish & Ingested_<_30_Minutes
+THEN Gastric_Lavage
+
+IF Pufferfish & !Ingested_<_30_Minutes
+THEN Measure/Monitor_Vital_Signs & Provide_Breathing_Support
+
+IF Snake
+THEN Administer_Antivenom_If_Necessary & Measure/Monitor_Vital_Signs & Tetanus_Immunization
+
+IF Sodium_Borate & Ingested_<_30_Minutes
+THEN Gastric_Lavage
+
+IF Sodium_Borate
+THEN Dialysis & Administer_IV & Measure/Monitor_Vital_Signs
+
+IF Sodium_Carbonate
+THEN Endoscopy & Administer_IV & Measure/Monitor_Vital_Signs & Oxygen & X-Rays_Of_Chest_&_Abdomen
+
+IF Sodium_Hypochlorite
+THEN Measure/Monitor_Vital_Signs & Admit_To_Hospital
+
+IF Sodium_Hypochlorite & Inhaled
+THEN Provide_Breathing_Support & Oxygen & Bronchoscopy
+
+IF Sodium_Hypochlorite & Skin
+THEN Skin_Debridement & Wash_Skin
+
+IF Sodium_Hypochlorite & !Inhaled & !Skin & Ingested_<_30_Minutes
+THEN Gastric_Lavage
+
+IF Sodium_Hypochlorite & !Inhaled & !Skin
+THEN Endoscopy & Administer_IV
+
+IF Sodium_Phosphate
+THEN Measure/Monitor_Vital_Signs
+
+IF Sodium_Phosphate & Inhaled
+THEN Provide_Breathing_Support & Oxygen & Bronchoscopy
+
+IF Sodium_Phosphate & Skin
+THEN Skin_Debridement & Wash_Skin
+
+IF Sodium_Phosphate & !Inhaled & !Skin
+THEN Endoscopy & Administer_IV
+
+IF Sodium_Hydroxide
+THEN Measure/Monitor_Vital_Signs
+
+IF Sodium_Hydroxide & Inhaled
+THEN Provide_Breathing_Support & Oxygen & Bronchoscopy
+
+IF Sodium_Hydroxide & !Inhaled & Skin
+THEN Skin_Debridement & Wash_Skin
+
+IF Sodium_Hydroxide & !Inhaled & !Skin & !Ingested_<_30_Minutes
+THEN Endoscopy & Administer_IV
+
+IF Spider
+THEN Soap_And_Water & Acetaminophen & Antibiotics & Cold_Compresses & Diphenhydramine_Every_6_Hours & Tetanus_Immunization
+
+IF Sting_Ray
+THEN Provide_Breathing_Support & Administer_IV & Measure/Monitor_Vital_Signs & Soap_And_Water
+
+IF Ultraviolet_Radiation
+THEN Administer_Fluids & Apply_Aloe_Vera & Apply_Lidocaine
+
+IF Poison_Oak
+THEN Acetaminophen & Apply_HydroCortisone
+
+IF Sulfuric_Acid
+THEN Provide_Breathing_Support & Bronchoscopy & Endoscopy & Administer_IV & Measure/Monitor_Vital_Signs & Milk_Of_Magnesia & Oxygen & Skin_Debridement & Wash_Skin
+
+IF Poison_Ivy
+THEN Acetaminophen & Apply_HydroCortisone
+
+IF Poison_Sumac
+THEN Acetaminophen & Apply_HydroCortisone
