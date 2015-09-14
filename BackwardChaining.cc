@@ -556,6 +556,7 @@ void BackwardChaining::ObtainConclusion()
 	for(unsigned poison = 0; poison < PoisonsDiagnosed.size(); poison++)
 	{
 		ForwardChaining ForwardChainingInstance("FC-Rules.txt");
+		// ForwardChainingInstance.Trigger("Arsenic");
 		ForwardChainingInstance.Trigger(PoisonsDiagnosed.at(poison));
 	}
 }
