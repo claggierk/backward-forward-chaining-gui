@@ -5,6 +5,7 @@
 
 #include "BackwardChaining.h"
 #include "ForwardChaining.h"
+#include <pthread.h>
 
 using std::cout;
 using std::endl;
@@ -35,6 +36,8 @@ GtkButton* noButton = NULL;
 
 // callback functions that will get called when the user clicks "YES" or "NO"
 void ButtonPressed(GtkButton* button, gpointer user_data);
+void *StartChaining(void *ptr);
+void *StartGUI(void *ptr);
 
 int main(int argc, char* argv[])
 {
@@ -82,14 +85,24 @@ int main(int argc, char* argv[])
 		// *************************************************************
 		// ***** backward chaining ... diagnose the poison
 		// *************************************************************
-		BackwardChaining* BackwardChainingInstance = new BackwardChaining("BC-Rules.txt");
-		// NEED TO KICK THIS OFF IN A THREAD SO THAT WHEN gQuestionAnswered IS UPDATED...
-		// IT IS SEEN BY THE BackwardChainingInstance
-		// Thread* thread01 = new Thread((IRunnable*)BackwardChainingInstance);
-		// thread01->start();
+		pthread_t thread1;
+		const char *message1 = "Thread 1";
+		int iret1 = pthread_create(&thread1, NULL, StartChaining, (void*) message1);
+		if(iret1)
+		{
+		   cout << endl << "Error - pthread_create() return code: " << iret1;
+		}
 
-		// kick off the GUI
-		::gtk_main();
+		pthread_t thread2;
+		const char *message2 = "Thread 2";
+		int iret2 = pthread_create(&thread2, NULL, StartGUI, (void*) message2);
+		if(iret2)
+		{
+		   cout << endl << "Error - pthread_create() return code: " << iret2;
+		}
+
+		pthread_join(thread1, NULL);
+		pthread_join(thread2, NULL);
 
 		// *************************************************************
 		// ***** forward chaining ... recommend treatment
@@ -102,6 +115,17 @@ int main(int argc, char* argv[])
 	}
 
 	cout << endl << endl << "Exiting..." << endl;
+}
+
+void *StartChaining(void *ptr)
+{
+	BackwardChaining* BackwardChainingInstance = new BackwardChaining("BC-Rules.txt");
+	BackwardChainingInstance->run();
+}
+
+void *StartGUI(void *ptr)
+{
+	::gtk_main();
 }
 
 void ButtonPressed(GtkButton* button, gpointer user_data)
