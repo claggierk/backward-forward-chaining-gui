@@ -83,6 +83,10 @@ int main(int argc, char* argv[])
 		// ***** backward chaining ... diagnose the poison
 		// *************************************************************
 		BackwardChaining* BackwardChainingInstance = new BackwardChaining("BC-Rules.txt");
+		// NEED TO KICK THIS OFF IN A THREAD SO THAT WHEN gQuestionAnswered IS UPDATED...
+		// IT IS SEEN BY THE BackwardChainingInstance
+		// Thread* thread01 = new Thread((IRunnable*)BackwardChainingInstance);
+		// thread01->start();
 
 		// kick off the GUI
 		::gtk_main();
